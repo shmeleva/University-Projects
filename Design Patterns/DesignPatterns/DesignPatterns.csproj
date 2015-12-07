@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B74EF61-BF1A-4BD1-92EE-C9B378BBD5E4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DesignPatterns</RootNamespace>
+    <AssemblyName>DesignPatterns</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GulyayGorod">
+      <HintPath>..\..\Учебные материалы\Паттерны\GulyayGorod.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Battle.cs" />
+    <Compile Include="BattleInterruptController.cs" />
+    <Compile Include="Commands\ActionCommand.cs" />
+    <Compile Include="Commands\CommandStatus.cs" />
+    <Compile Include="Commands\CommandManager.cs" />
+    <Compile Include="Commands\FightCommand.cs" />
+    <Compile Include="Commands\GameOverCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\MoveEndCommand.cs" />
+    <Compile Include="Commands\MoveStartCommand.cs" />
+    <Compile Include="Commands\SpecialActionCommand.cs" />
+    <Compile Include="ExtendedMath.cs" />
+    <Compile Include="Factories\ArmyFactoryFacade.cs" />
+    <Compile Include="Factories\UnitFactory.cs" />
+    <Compile Include="Gui.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Strategies\MilitaryStrategy.cs" />
+    <Compile Include="Strategies\OneOnOneStrategy.cs" />
+    <Compile Include="Strategies\ThreeOnThreeStrategy.cs" />
+    <Compile Include="Strategies\WallOnWallStrategy.cs" />
+    <Compile Include="Units\UnitKeeper.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitArmourDecorator.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitBaseDecorator.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitHelmetDecorator.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitHorseDecorator.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitShieldDecorator.cs" />
+    <Compile Include="Units\Heavy Units\Knight Unit Decorators\KnightUnitSpearDecorator.cs" />
+    <Compile Include="Units\Light Units\ArcherUnit.cs" />
+    <Compile Include="Units\Heavy Units\BarrierUnitAdapter.cs" />
+    <Compile Include="Battlefield.cs" />
+    <Compile Include="Units\Light Units\HealerUnit.cs" />
+    <Compile Include="Units\Heavy Units\HeavyUnit.cs" />
+    <Compile Include="Units\Light Units\InfantryUnit.cs" />
+    <Compile Include="Factories\IUnitFactory.cs" />
+    <Compile Include="Units\Heavy Units\KnightUnit.cs" />
+    <Compile Include="Units\Light Units\MageUnit.cs" />
+    <Compile Include="Units\Model\ICanBeHealed.cs" />
+    <Compile Include="Units\Model\IClonableUnit.cs" />
+    <Compile Include="Units\Model\ISpecialAction.cs" />
+    <Compile Include="Units\Unit.cs" />
+    <Compile Include="Units\Light Units\LightUnit.cs" />
+    <Compile Include="BattleRandom.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

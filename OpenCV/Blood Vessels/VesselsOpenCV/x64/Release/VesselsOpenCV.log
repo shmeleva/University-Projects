@@ -1,0 +1,22 @@
+﻿Сборка начата 30.06.2015 22:26:55.
+     1>Проект "C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\VesselsOpenCV\VesselsOpenCV.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Users\Rina\Dropbox\OpenCV Projects\opencv\build\include" /I"C:\Users\Rina\Dropbox\OpenCV Projects\opencv\build\include\opencv" /I"C:\Users\Rina\Dropbox\OpenCV Projects\opencv\build\include\opencv2" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt CvFramesHolder.cpp VesselsMain.cpp VideoHolder.cpp
+         CvFramesHolder.cpp
+     1>CvFramesHolder.cpp(15): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+         VesselsMain.cpp
+         VideoHolder.cpp
+     1>VideoHolder.cpp(11): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+     1>VideoHolder.cpp(12): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\x64\Release\VesselsOpenCV.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Rina\Dropbox\OpenCV Projects\opencv\build\x64\vc12\lib" opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\x64\Release\VesselsOpenCV.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\x64\Release\VesselsOpenCV.lib" /MACHINE:X64 x64\Release\CvFramesHolder.obj
+         x64\Release\VesselsMain.obj
+         x64\Release\VideoHolder.obj
+         Создание кода
+         Создание кода завершено
+         VesselsOpenCV.vcxproj -> C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\x64\Release\VesselsOpenCV.exe
+     1>Сборка проекта "C:\Users\Rina\Dropbox\OpenCV Projects\VesselsOpenCV\VesselsOpenCV\VesselsOpenCV.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:04.42

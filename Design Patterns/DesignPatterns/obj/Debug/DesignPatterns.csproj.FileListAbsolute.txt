@@ -1,0 +1,18 @@
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.exe.config
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.csprojResolveAssemblyReference.cache
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.exe
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.pdb
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\Rina\Dropbox\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\bin\Debug\DesignPatterns.exe.config
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\obj\Debug\DesignPatterns.pdb
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\obj\Debug\DesignPatterns.csprojResolveAssemblyReference.cache
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\bin\Debug\DesignPatterns.exe
+C:\Users\Rina\Dropbox\DesignPatterns (2)\DesignPatterns\bin\Debug\DesignPatterns.pdb
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\bin\Debug\DesignPatterns.exe.config
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\bin\Debug\DesignPatterns.exe
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\bin\Debug\DesignPatterns.pdb
+D:\Documents\GitHub\University-Projects\Design Patterns\DesignPatterns\obj\Debug\DesignPatterns.csprojResolveAssemblyReference.cache
