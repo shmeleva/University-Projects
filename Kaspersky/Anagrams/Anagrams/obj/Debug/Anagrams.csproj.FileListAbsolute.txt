@@ -1,0 +1,9 @@
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\bin\Debug\Anagrams.exe.config
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\bin\Debug\Anagrams.exe
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\bin\Debug\Anagrams.pdb
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\obj\Debug\Anagrams.csprojResolveAssemblyReference.cache
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\obj\Debug\Anagrams.exe
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams\obj\Debug\Anagrams.pdb
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams\bin\Debug\Anagrams.exe.config
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams\obj\Debug\Anagrams.exe
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams\obj\Debug\Anagrams.pdb

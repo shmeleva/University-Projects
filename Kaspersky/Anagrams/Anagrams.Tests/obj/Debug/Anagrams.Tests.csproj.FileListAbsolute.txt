@@ -1,0 +1,14 @@
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.Tests.dll
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.Tests.pdb
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.exe
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.pdb
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.dll
+C:\Users\Rina\Dropbox\Job Search\Тестовые задания\Касперский\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.pdb
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.Tests.dll
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.Tests.pdb
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.exe
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\bin\Debug\Anagrams.pdb
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.dll
+D:\Documents\GitHub\University-Projects\Kaspersky\Anagrams\Anagrams.Tests\obj\Debug\Anagrams.Tests.pdb
