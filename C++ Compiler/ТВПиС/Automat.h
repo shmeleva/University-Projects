@@ -35,22 +35,15 @@ public:
 private:
 	Parser* parser;
 
-
-	
-
 	Token StrToToken(char*);
 	bool IsLetter(char);
 	char* oneCharString(char);
 
 public:
-
-	
-
 	struct ParseResult
 	{
 		Token token;
 		char* string;
-
 
 		ParseResult(Token token, char* string)
 		{

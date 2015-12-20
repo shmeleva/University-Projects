@@ -3,7 +3,7 @@
 #include "TValue.h"
 #include "TypeList.h"
 #include "OperationList.h"
-#include "Scope.h";
+#include "Scope.h"
 #include <iostream>
 
 // Базовый класс для всех узлов и листьев синтаксического дерева.

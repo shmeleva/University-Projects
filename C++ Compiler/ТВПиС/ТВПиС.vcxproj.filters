@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\List">
-      <UniqueIdentifier>{79b57108-7581-4662-adf9-f5330e3c2d9d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\List">
-      <UniqueIdentifier>{912ec0aa-7b67-49f5-bc35-3937ca7a9d8c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -44,15 +38,6 @@
     </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Deque.h">
-      <Filter>Header Files\List</Filter>
-    </ClInclude>
-    <ClInclude Include="Queue.h">
-      <Filter>Header Files\List</Filter>
-    </ClInclude>
-    <ClInclude Include="Stack.h">
-      <Filter>Header Files\List</Filter>
     </ClInclude>
     <ClInclude Include="SortingMethod.h">
       <Filter>Header Files</Filter>
@@ -118,15 +103,6 @@
     </ClCompile>
     <ClCompile Include="List.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>Source Files\List</Filter>
-    </ClCompile>
-    <ClCompile Include="Queue.cpp">
-      <Filter>Source Files\List</Filter>
-    </ClCompile>
-    <ClCompile Include="Deque.cpp">
-      <Filter>Source Files\List</Filter>
     </ClCompile>
     <ClCompile Include="Hash.cpp">
       <Filter>Source Files</Filter>

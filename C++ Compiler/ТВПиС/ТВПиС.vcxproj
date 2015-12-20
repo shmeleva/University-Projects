@@ -84,7 +84,6 @@
     <ClInclude Include="BinaryOperationList.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Defaults.h" />
-    <ClInclude Include="Deque.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="FileWritter.h" />
@@ -92,11 +91,9 @@
     <ClInclude Include="Heap.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Parser.h" />
-    <ClInclude Include="Queue.h" />
     <ClInclude Include="Scope.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="SortingMethod.h" />
-    <ClInclude Include="Stack.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TNode.h" />
@@ -110,7 +107,6 @@
     <ClCompile Include="ASTBuilder.cpp" />
     <ClCompile Include="Automat.cpp" />
     <ClCompile Include="BinaryOperationList.cpp" />
-    <ClCompile Include="Deque.cpp" />
     <ClCompile Include="Exception.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="FileWritter.cpp" />
@@ -118,10 +114,8 @@
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Parser.cpp" />
-    <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Scope.cpp" />
     <ClCompile Include="Segment.cpp" />
-    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
