@@ -32,6 +32,7 @@ void StartPiCalculation(int sig)
             numeratorCounter = 0;
             numerator += 2;
         }
+        
         if (denominatorCounter == 2)
         {
             denominatorCounter = 0;
@@ -47,18 +48,18 @@ void StartPiCalculation(int sig)
     pi *= 2;
 
     // Запись данных в выходной поток, который перехватывается родительским процессом.
-	write(1, &pi, sizeof(double));
-
-	// Вывод на консоль информации с использованием потока ошибок, перенаправленного на поток вывода.
-	write(2, "Pi child was killed.\n", strlen("Pi child was killed.\n")+1);
+    write(1, &pi, sizeof(double));
+    
+    // Вывод на консоль информации с использованием потока ошибок, перенаправленного на поток вывода.
+    write(2, "Pi child was killed.\n", strlen("Pi child was killed.\n")+1);
 
     exit (0);
 }
 
 int main(int argc, const char * argv[])
 {
-	// Сигнал SIGUSR1 начала вычислений.
-	signal(SIGUSR1, StartPiCalculation);
+    // Сигнал SIGUSR1 начала вычислений.
+    signal(SIGUSR1, StartPiCalculation);
 
     while (1);
 
