@@ -13,17 +13,17 @@ void Dummy () { }
 
 int main(int argc, const char * argv[])
 {
-	int x = 1;
+    int x = 1;
 
-	int PiFileDescriptor[2];
-	int ExpFileDescriptor[2];
+    int PiFileDescriptor[2];
+    int ExpFileDescriptor[2];
 
     // The pipe() function creates a pipe (an object that allows unidirectional data flow)
     // and allocates a pair of file descriptors.
-	pipe(PiFileDescriptor);
-	pipe(ExpFileDescriptor);
+    pipe(PiFileDescriptor);
+    pipe(ExpFileDescriptor);
 
-	switch (fork())
+    switch (fork())
     {
         case SUCCESS:
         {
@@ -36,7 +36,7 @@ int main(int argc, const char * argv[])
             // Перенаправление потока вывода.
             dup2 (PiFileDescriptor[1], 1);
 
-			close (PiFileDescriptor[0]);
+	    close (PiFileDescriptor[0]);
             close (PiFileDescriptor[1]);
 
             if (execl("/Users/emmer/Dropbox/Educational materials/Программирование в среде UNIX/Семестр (2)/Лабораторные работы/ЛР1/CalculatePi", 0) == -1)
@@ -67,7 +67,7 @@ int main(int argc, const char * argv[])
             // Перенаправление потока вывода.
             dup2 (ExpFileDescriptor[1], 1);
 
-			close (ExpFileDescriptor[0]);
+	    close (ExpFileDescriptor[0]);
             close (ExpFileDescriptor[1]);
 
             write(ExpFileDescriptor[1], &x, sizeof(int));
@@ -90,9 +90,9 @@ int main(int argc, const char * argv[])
     sleep (3);
 
     // The process group of the current process is returned by getpgrp().
-	int grp = -1 * getpgrp();
+    int grp = -1 * getpgrp();
 
-	printf ("Calculating...\n");
+    printf ("Calculating...\n");
 
     // The sig argument specifies which signal was received.
     // The func procedure allows a user to choose the action upon receipt of a signal.
@@ -104,22 +104,21 @@ int main(int argc, const char * argv[])
     // The kill() function sends the signal specified by sig to pid, a process or a group of processes.
     kill(grp, SIGUSR1);
 
-	printf ("Sleep...\n");
-	sleep(3);
+    printf ("Sleep...\n");
+    sleep(3);
 
-	kill(grp, SIGUSR2);
+    kill(grp, SIGUSR2);
 
-	double exp = 0, pi = 0;
+    double exp = 0, pi = 0;
 
-	read(PiFileDescriptor[0], &pi, sizeof(double));
-	read(ExpFileDescriptor[0], &exp, sizeof(double));
+    read(PiFileDescriptor[0], &pi, sizeof(double));
+    read(ExpFileDescriptor[0], &exp, sizeof(double));
 
     printf ("exp = %f\n", exp);
-	printf ("pi = %f\n", pi);
+    printf ("pi = %f\n", pi);
 
-	double result = exp / sqrt(2.0 * pi);
+    double result = exp / sqrt(2.0 * pi);
+    printf ("f(x) = %lf\n", result);
 
-	printf ("f(x) = %lf\n", result);
-
-	return 0;
+    return 0;
 }
