@@ -10,33 +10,33 @@ namespace DesignPatterns
     {
         private Boolean _on;
 
-		private Battle _battle;
-		private Int32 _strategyIndex;
+	private Battle _battle;
+	private Int32 _strategyIndex;
 
         public Gui()
-		{
+	{
             StartNewBattle();
-		}
+	}
 
-		private void GameOverSound(String message)
-		{
-			Console.Beep(300, 500);
-		}
+	private void GameOverSound(String message)
+	{
+	    Console.Beep(300, 500);
+	}
         private void SpecialActionSound(String message)
-		{
+	{
             Console.Beep(400, 50);
-		}
-		private void DeathSound(Unit dead)
-		{
+	}
+	private void DeathSound(Unit dead)
+	{
             Console.Beep(200, 50);
-		}
+	}
         public void Log(String message)
-		{
+	{
             Console.WriteLine(message);
-		}
+	}
 
-		public void StartGameCycle()
-		{
+	public void StartGameCycle()
+	{
             Log("New battle.");
 
             Log(string.Format("Chosen strategy: {0}.", _battle.CurrentStrategy.Name.ToLower()));
@@ -46,49 +46,49 @@ namespace DesignPatterns
             Console.WriteLine();
 
             while (_on)
-			{
+	    {
                 CaptureInput();
-			}
-		}
+	    }
+	}
 
         private void CaptureInput()
-		{
-			Boolean properKey = false;
+	{
+	    Boolean properKey = false;
 
             while (properKey == false)
-			{
-				ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+	    {
+		ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 properKey = true;
 
-				switch (keyInfo.Key)
-				{
-					case ConsoleKey.Escape:
-                        Escape();
-						break;
-					case ConsoleKey.Spacebar:
-						Action();
-						break;
-					case ConsoleKey.LeftArrow:
-						Back();
-						break;
-					case ConsoleKey.RightArrow:
-						Forward();
-						break;
-					case ConsoleKey.DownArrow:
+		switch (keyInfo.Key)
+		{
+	            case ConsoleKey.Escape:
+		        Escape();
+			break;
+		    case ConsoleKey.Spacebar:
+		        Action();
+			break;
+		    case ConsoleKey.LeftArrow:
+			Back();
+			break;
+		    case ConsoleKey.RightArrow:
+			Forward();
+			break;
+		    case ConsoleKey.DownArrow:
                         ShowAvailableStrategies();
-						break;
-					case ConsoleKey.R:
+			break;
+		    case ConsoleKey.R:
                         RestoreBattle();
-						break;
+			break;
                     case ConsoleKey.N:
                         StartNewBattle();
                         break;
-					default:
+		    default:
                         properKey = false;
-						break;
-				}
-			}
-		}
+			break;
+	        }
+	    }
+	}
 
         private void Escape()
         {
@@ -114,6 +114,7 @@ namespace DesignPatterns
                 Console.WriteLine();
             }
         }
+        
         private void StartNewBattle()
         {
             _battle = new Battle();
@@ -144,6 +145,7 @@ namespace DesignPatterns
                 Console.WriteLine();
             }
         }
+        
         private void Back()
         {
             if (_battle.Field.Status == Battlefield.BattleStatus.Active)
@@ -168,6 +170,7 @@ namespace DesignPatterns
                 Console.WriteLine();
             }
         }
+        
         private void Forward()
         {
             if (_battle.Field.Status == Battlefield.BattleStatus.Active)
@@ -241,18 +244,16 @@ namespace DesignPatterns
             }
         }
 
-		private void ShowField()
-		{
+	private void ShowField()
+	{
             Console.ForegroundColor = ConsoleColor.White; ;
             Console.WriteLine("Армия с правом первой атаки: " + _battle.Field.GetArmyName(_battle.Field.CurrentArmy) + ".");
 
-			StringBuilder stringField = new StringBuilder();
+	    StringBuilder stringField = new StringBuilder();
             String seporatorString = "    ";
 
             for (int i = _battle.Field.Reds.Count - 1; i >= 0; i--)
-            {
                 stringField.Append(_battle.Field.Reds[i].ToString() + " ");
-            }
 
             if (stringField.Length != 0)
                 stringField.Append(seporatorString);
@@ -263,11 +264,10 @@ namespace DesignPatterns
             stringField.Clear();
 
             for (int i = 0; i < _battle.Field.Whites.Count; i++)
-            {
                 stringField.Append(_battle.Field.Whites[i].ToString() + " ");
-            }
+
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(stringField.ToString());
-		}
+	}
     }
 }
