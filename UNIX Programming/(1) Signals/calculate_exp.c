@@ -43,7 +43,7 @@ void StartExpCalculation(int sig)
     write(1, &exp, sizeof(double));
 
     // Вывод на консоль информации с использованием потока ошибок, перенаправленного на поток вывода.
-	write(2, "Exp child was killed.\n", strlen("Exp child was killed.\n")+1);
+    write(2, "Exp child was killed.\n", strlen("Exp child was killed.\n")+1);
 
     exit (0);
 }
@@ -53,7 +53,7 @@ int main(int argc, const char * argv[])
     signal(SIGUSR1, StartExpCalculation);
 
     // Чтение параметра.
-	read(0, &x, sizeof(int));
+    read(0, &x, sizeof(int));
 
     while (1);
 
