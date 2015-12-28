@@ -23,7 +23,7 @@ double calculate_exp(double x)
 
 int main(int argc, char **argv)
 {
-    handle = clnt_create(RMACHINE, RDATE_PROG, RDATE_VERS, "tcp");
+    handle = clnt_create(RMACHINE, RCALCULATIONS_PROG, RCALCULATIONS_VERS, "tcp");
     
     if (handle == NULL)
     {
