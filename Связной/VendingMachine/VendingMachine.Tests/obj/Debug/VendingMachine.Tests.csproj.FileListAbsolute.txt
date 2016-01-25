@@ -1,0 +1,21 @@
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\bin\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\bin\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\bin\Debug\VendingMachine.Tests.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\bin\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.dll
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine.Tests\obj\Debug\VendingMachine.Tests.pdb

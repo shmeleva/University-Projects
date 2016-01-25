@@ -1,0 +1,19 @@
+C:\Users\Rina\Dropbox\Projects\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe.config
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe.config
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\obj\Debug\VendingMachine.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\bin\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\obj\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine\VendingMachine\obj\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\bin\Debug\VendingMachine.exe.config
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\obj\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\obj\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\bin\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия\VendingMachine\obj\Debug\VendingMachine.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\bin\Debug\VendingMachine.exe.config
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\obj\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\obj\Debug\VendingMachine.pdb
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\obj\Debug\VendingMachine.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\bin\Debug\VendingMachine.exe
+D:\Documents\GitHub\University-Projects\Связной\VendingMachine — копия — копия\VendingMachine\bin\Debug\VendingMachine.pdb
