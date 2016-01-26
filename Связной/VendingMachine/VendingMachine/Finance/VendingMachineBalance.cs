@@ -11,15 +11,39 @@ namespace VendingMachine.Finance
     {
         private readonly IBalance _balance;
 
-        public int CustomerDeposit { get; private set; }
+        private int _customerDeposit;
+        public int CustomerDeposit
+        {
+            get
+            {
+                return _customerDeposit;
+            }
+            set
+            {
+                if (value < 0)
+                    throw new NotEnoughMoneyBalanceException();
+
+                _customerDeposit = value;
+            }
+        }
 
         public int Overall => _balance.Overall;
 
-        public IEnumerable<Tuple<Coin, int>> Stacks => _balance.Stacks;
+        public IDictionary<Coin, int> StacksOfCoins => _balance.StacksOfCoins;
 
         public VendingMachineBalance(IBalance balance)
         {
-            _balance = (balance == null) ? Balance.ZeroBalance : balance;
+            _balance = (balance == null) ? new Balance() : balance;
+        }
+
+        public VendingMachineBalance(IDictionary<Coin, int> coins)
+        {
+            _balance = new Balance(coins);
+        }
+
+        public VendingMachineBalance(IEnumerable<Coin> coins)
+        {
+            _balance = new Balance(coins);
         }
 
         public void PutCoin(Coin coin)
@@ -43,7 +67,7 @@ namespace VendingMachine.Finance
         public Coin TakeCoin(Coin coin)
         {
             if (CustomerDeposit < (int)coin)
-                throw new VendingMachineException("Номинал монеты больше депозита.");
+                throw new NotEnoughMoneyBalanceException();
 
             var taken = _balance.TakeCoin(coin);
             CustomerDeposit -= (int)coin;
@@ -51,9 +75,24 @@ namespace VendingMachine.Finance
             return taken;
         }
 
-        public IBalance TakeMoney(int money)
+        public IBalance TakeMoney(int amount)
         {
-            throw new NotImplementedException();
+            if (CustomerDeposit < amount)
+            {
+                throw new NotEnoughMoneyBalanceException();
+            }
+
+            try
+            {
+                IBalance balance = _balance.TakeMoney(amount);
+                CustomerDeposit -= amount;
+
+                return balance;
+            }
+            catch(NoCoinBalanceException)
+            {
+                throw new NoChangeVendingMachineException();
+            }
         }
     }
 }

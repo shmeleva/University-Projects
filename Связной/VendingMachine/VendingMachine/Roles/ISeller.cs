@@ -10,10 +10,11 @@ namespace VendingMachine.Roles
 {
     interface ISeller
     {
-        void PutMoney(Coin coin);
+        int CustomerDeposit { get; }
+        IEnumerable<Product> VarietyOfProducts { get; }
 
-        Product GetItem(string barcode);
-
-        IBalance RequestChange();
+        void AcceptPayment(Coin coin);
+        Product DispenceProduct(Guid barcode);
+        IBalance ReturnDeposit();
     }
 }

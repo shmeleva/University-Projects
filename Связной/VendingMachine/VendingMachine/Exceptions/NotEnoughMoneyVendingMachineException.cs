@@ -8,6 +8,6 @@ namespace VendingMachine.Exceptions
 {
     public class NotEnoughMoneyVendingMachineException : VendingMachineException
     {
-        public NotEnoughMoneyVendingMachineException() : base("Внесенной суммы не хватает для покупки.") { }
+        public NotEnoughMoneyVendingMachineException() : base("Внесенной суммы не хватает для покупки") { }
     }
 }

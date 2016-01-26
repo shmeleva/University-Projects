@@ -10,50 +10,50 @@ namespace VendingMachine
 {
     static class ProjectDefaults
     {
-        public static Menu DefaultMenu
+        public static Menu Menu
         {
             get
             {
-                IEnumerable<ProductCollection> draft = new List<ProductCollection>
+                var menu = new List<ProductCollection>
                 {
                     new ProductCollection(new Product(Guid.NewGuid(), "Cupcake", 50), 4),
                     new ProductCollection(new Product(Guid.NewGuid(), "Cookie", 10), 3),
                     new ProductCollection(new Product(Guid.NewGuid(), "Waffle", 30), 10)
                 };
 
-                return new Menu(draft);
+                return new Menu(menu);
             }
         }
 
-        // Временно.
-        public static IBalance DefaultVendingMachineBalance
+        public static VendingMachineBalance VendingMachineBalance
         {
             get
             {
-                var one = Enumerable.Repeat(Coin.OneRuble, 5);
-                var two = Enumerable.Repeat(Coin.TwoRubles, 5);
-                var five = Enumerable.Repeat(Coin.FiveRubles, 5);
-                var ten = Enumerable.Repeat(Coin.TwoRubles, 5);
+                var balance = new Dictionary<Coin, int>
+                {
+                    { Coin.OneRuble, 10 },
+                    { Coin.TwoRubles, 10 },
+                    { Coin.FiveRubles, 5 },
+                    { Coin.TenRubles, 5 },
+                };
 
-                var coins = new List<Coin>();
-
-                return null;
+                return new VendingMachineBalance(new Balance(balance));
             }
         }
 
-        public static IBalance DefaultCustomerBalance
+        public static Balance CustomerBalance
         {
             get
             {
-                var coins = new List<Coin>();
+                var balance = new Dictionary<Coin, int>
+                {
+                    { Coin.OneRuble, 20 },
+                    { Coin.TwoRubles, 15 },
+                    { Coin.FiveRubles, 10 },
+                    { Coin.TenRubles, 5 },
+                };
 
-                coins.AddRange(coins);
-                coins.AddRange(coins);
-                coins.AddRange(coins);
-
-                var balance = new Balance(coins);
-
-                return balance;
+                return new Balance(balance);
             }
         }
     }

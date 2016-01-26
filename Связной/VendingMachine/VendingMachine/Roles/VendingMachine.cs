@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 using VendingMachine.Finance;
 using VendingMachine.Products;
+using VendingMachine.Exceptions;
 
 namespace VendingMachine.Roles
 {
-    class VendingMachine : ISeller
+    class VendingMachineSeller : ISeller
     {
         private Menu _vendingMachineMenu;
-        private IBalance _vendingMachineBalance;
+        private VendingMachineBalance _vendingMachineBalance;
 
-        public VendingMachine(Menu menu, IBalance balance)
+        public int CustomerDeposit =>
+            _vendingMachineBalance.CustomerDeposit;
+
+        public IEnumerable<Product> VarietyOfProducts =>
+            _vendingMachineMenu.AvaliableProducts;
+
+        public VendingMachineSeller(Menu menu, VendingMachineBalance balance)
         {
             Configure(menu);
             Configure(balance);
@@ -24,7 +32,7 @@ namespace VendingMachine.Roles
             _vendingMachineMenu = menu;
         }
 
-        public void Configure(IBalance balance)
+        public void Configure(VendingMachineBalance balance)
         {
             if (balance == null) throw new NullReferenceException();
 
@@ -35,19 +43,26 @@ namespace VendingMachine.Roles
 
         #region Custumer Interaction
 
-        public void PutMoney(Coin coin)
+        public void AcceptPayment(Coin coin)
         {
             _vendingMachineBalance.PutCoin(coin);
         }
 
-        public Product GetItem(string barcode)
+        public Product DispenceProduct(Guid barcode)
         {
-            throw new NotImplementedException();
+            int price = _vendingMachineMenu.GetPrice(barcode);
+
+            if (price > CustomerDeposit)
+                throw new NotEnoughMoneyVendingMachineException();
+
+            _vendingMachineBalance.CustomerDeposit -= price;
+
+            return _vendingMachineMenu.TakeOne(barcode);
         }
 
-        public IBalance RequestChange()
+        public IBalance ReturnDeposit()
         {
-            throw new NotImplementedException();
+            return _vendingMachineBalance.TakeMoney(_vendingMachineBalance.CustomerDeposit);
         }
 
         #endregion

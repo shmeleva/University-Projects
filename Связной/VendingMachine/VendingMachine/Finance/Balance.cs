@@ -1,48 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using VendingMachine.Exceptions;
 
 namespace VendingMachine.Finance
 {
     class Balance : IBalance
     {
-        protected readonly Dictionary<Coin, int> _stacks = new Dictionary<Coin, int>();
+        private readonly Dictionary<Coin, int> _stacksOfCoins = new Dictionary<Coin, int>();
 
-        public int Overall => _stacks.Sum(coin => (int)coin.Key * coin.Value);
+        public int Overall =>
+            _stacksOfCoins.Sum(s => (int)s.Key * s.Value);
 
-        public IEnumerable<Tuple<Coin, int>> Stacks
-        {
-            get
-            {
-                var filled = _stacks.Where(stack => stack.Value > 0);
+        public IDictionary<Coin, int> StacksOfCoins =>
+            _stacksOfCoins.Where(s => s.Value != 0).ToDictionary(s => s.Key, s => s.Value);
 
-                foreach (var stack in filled)
-                    yield return new Tuple<Coin, int>(stack.Key, stack.Value);
-            }
-        }
-
-        public static Balance ZeroBalance => new Balance();
-
-        private Balance() { }
+        public Balance() { }
 
         public Balance(IEnumerable<Coin> coins)
         {
-            if (coins == null) return;
+            if (coins == null)
+                return;
 
             var aggregatedByDenomination = from coin in coins
                                            group coin by coin into grouping
-                                           select new { Coin = grouping.Key, Number = grouping.Count() };
+                                           select new { Coin = grouping.Key, Amount = grouping.Count() };
 
             foreach (var item in aggregatedByDenomination)
-                _stacks.Add(item.Coin, item.Number);
+                _stacksOfCoins.Add(item.Coin, item.Amount);
         }
 
         public Balance(IDictionary<Coin, int> coins)
         {
-            if (coins == null) return;
+            if (coins == null)
+                return;
 
             foreach (var item in coins)
-                _stacks.Add(item.Key, item.Value);
+                _stacksOfCoins.Add(item.Key, item.Value);
         }
 
         public void PutCoin(Coin coin)
@@ -55,31 +49,74 @@ namespace VendingMachine.Finance
             if (numberOfCoins < 0)
                 throw new ArgumentException("The number of coins is less than zero.");
 
-            if (_stacks.ContainsKey(coin) == false)
-                _stacks.Add(coin, 0);
+            if (_stacksOfCoins.ContainsKey(coin) == false)
+                _stacksOfCoins.Add(coin, 0);
 
-            _stacks[coin] += numberOfCoins;
+            _stacksOfCoins[coin] += numberOfCoins;
         }
 
         public void PutMoney(IBalance money)
         {
-            foreach (var stack in money.Stacks)
-                PutCoins(stack.Item1, stack.Item2);
+            foreach (var stack in money.StacksOfCoins)
+                PutCoins(stack.Key, stack.Value);
         }
 
         public Coin TakeCoin(Coin coin)
         {
-            if (_stacks.ContainsKey(coin) == false || _stacks[coin] == 0)
-                throw new Exception("Отсутствуют монеты с указанным номиналом.");
+            if (_stacksOfCoins.ContainsKey(coin) == false || _stacksOfCoins[coin] == 0)
+                throw new NoCoinBalanceException();
 
-            _stacks[coin]--;
+            _stacksOfCoins[coin]--;
 
             return coin;
         }
 
-        public IBalance TakeMoney(int money)
+        public IBalance TakeMoney(int amount)
         {
-            throw new NotImplementedException();
+            Dictionary<Coin, int> balance = CombineCoins(amount);
+
+            foreach (var stack in balance)
+                for (int i = 0; i < stack.Value; i++)
+                    TakeCoin(stack.Key);
+
+            return new Balance(balance);
+        }
+
+        private Dictionary<Coin, int> CombineCoins(int amount)
+        {
+            var change = new Dictionary<Coin, int>();
+
+            foreach (var stack in _stacksOfCoins.OrderByDescending(s => s.Key))
+            {
+                if (stack.Value > 0)
+                {
+                    int numberOfDenominations = (amount / (int)stack.Key);
+
+                    if (numberOfDenominations == 0)
+                    {
+                        continue;
+                    }
+
+                    if (numberOfDenominations > stack.Value)
+                    {
+                        numberOfDenominations = stack.Value;
+                        amount -= numberOfDenominations * (int)stack.Key;
+                    }
+                    else
+                    {
+                        amount = (amount % (int)stack.Key);
+                    }
+
+                    change.Add(stack.Key, numberOfDenominations);
+                }
+            }
+
+            if (amount > 0)
+            {
+                throw new NoCoinBalanceException();
+            }
+
+            return change;
         }
     }
 }

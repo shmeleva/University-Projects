@@ -38,8 +38,7 @@ namespace VendingMachine.Products
         {
             try
             {
-                var collection = _products[barcode];
-                return collection.TakeOne();
+                return _products[barcode].TakeOne();
             }
             catch(KeyNotFoundException)
             {
@@ -51,8 +50,19 @@ namespace VendingMachine.Products
         {
             try
             {
-                var collection = _products[barcode];
-                return collection.Amount;
+                return _products[barcode].Amount;
+            }
+            catch (KeyNotFoundException)
+            {
+                throw new InvalidItemBarcodeVendingMachineException();
+            }
+        }
+
+        public Int32 GetPrice(Guid barcode)
+        {
+            try
+            {
+                return _products[barcode].ProductInfo.Price;
             }
             catch (KeyNotFoundException)
             {

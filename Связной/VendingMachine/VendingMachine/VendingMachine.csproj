@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleApplication.cs" />
+    <Compile Include="Exceptions\BalanceException.cs" />
     <Compile Include="Exceptions\CustomerException.cs" />
+    <Compile Include="Exceptions\NoCoinBalanceException.cs" />
+    <Compile Include="Exceptions\NotEnoughMoneyBalanceException.cs" />
     <Compile Include="Exceptions\OutOfMoneyCustomerException.cs" />
     <Compile Include="Finance\IBalance.cs" />
     <Compile Include="Finance\VendingMachineBalance.cs" />
