@@ -32,7 +32,7 @@ namespace VendingMachine.Actions
 
         protected override Action<ConsoleKeyInfo> Act => delegate(ConsoleKeyInfo keyInfo)
         {
-            int option = keyInfo.Key - ConsoleKey.D0;
+            int option = keyInfo.KeyChar - '0';
 
             ThrowNewArgumentOutOfRangeException(option, 1, _products.Length);
 
@@ -43,7 +43,7 @@ namespace VendingMachine.Actions
                 WriteHeader(_seller.CustomerDeposit, _customer.WalletBalance);
                 Console.WriteLine($"Here is your \"{_customer.BoughtProducts.Last().Name}\"");
             }
-            catch(NotEnoughMoneyVendingMachineException e)
+            catch(InsufficientFundsException e)
             {
                 WriteHeader(_seller.CustomerDeposit, _customer.WalletBalance);
                 Console.WriteLine(e.Message);

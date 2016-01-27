@@ -29,8 +29,10 @@ namespace VendingMachine.Actions
 
         protected override Action<ConsoleKeyInfo> Act => delegate (ConsoleKeyInfo keyInfo)
         {
-            int option = keyInfo.Key - ConsoleKey.D0;
+            int option = keyInfo.KeyChar - '0';
+
             ThrowNewArgumentOutOfRangeException(option, 1, _actions.Count);
+
             _actions[option - 1].Execute();
         };
 

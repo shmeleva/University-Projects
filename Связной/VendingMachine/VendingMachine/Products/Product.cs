@@ -12,13 +12,13 @@ namespace VendingMachine.Products
         public Product(Guid barcode, string name, int price)
         {
             if (barcode == default(Guid))
-                throw new ArgumentException("Barcode is not specified.");
+                throw new ArgumentException(nameof(barcode));
 
             if (string.IsNullOrEmpty(name))
-                throw new ArgumentException("Product name is not specified.");
+                throw new ArgumentException(nameof(name));
 
             if (price < 0)
-                throw new ArgumentException("Price is less than zero.");
+                throw new ArgumentException(nameof(price));
 
             Barcode = barcode;
             Name = name;

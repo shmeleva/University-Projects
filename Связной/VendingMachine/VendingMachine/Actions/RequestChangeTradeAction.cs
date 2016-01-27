@@ -25,10 +25,11 @@ namespace VendingMachine.Actions
             try
             {
                 _customer.RequestChange();
+
                 WriteHeader(_seller.CustomerDeposit, _customer.WalletBalance);
                 Console.WriteLine($"*coins jingling*{Environment.NewLine}");
             }
-            catch (NoChangeVendingMachineException e)
+            catch (ChangeCannotBeReturnedException e)
             {
                 WriteHeader(_seller.CustomerDeposit, _customer.WalletBalance);
                 Console.WriteLine(e.Message);

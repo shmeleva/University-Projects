@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Exceptions
 {
-    class BalanceException : Exception
+    class NoSuchCoinException : Exception
     {
-        public BalanceException(string message) : base(message) { }
+        public NoSuchCoinException() : base("No coin(s) of such value") { }
     }
 }

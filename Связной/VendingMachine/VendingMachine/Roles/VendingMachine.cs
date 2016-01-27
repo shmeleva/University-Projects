@@ -53,7 +53,7 @@ namespace VendingMachine.Roles
             int price = _vendingMachineMenu.GetPrice(barcode);
 
             if (price > CustomerDeposit)
-                throw new NotEnoughMoneyVendingMachineException();
+                throw new InsufficientFundsException();
 
             _vendingMachineBalance.CustomerDeposit -= price;
 

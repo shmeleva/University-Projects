@@ -42,7 +42,7 @@ namespace VendingMachine.Products
             }
             catch(KeyNotFoundException)
             {
-                throw new InvalidItemBarcodeVendingMachineException();
+                throw new InvalidBarcodeException(barcode);
             }
         }
 
@@ -54,7 +54,7 @@ namespace VendingMachine.Products
             }
             catch (KeyNotFoundException)
             {
-                throw new InvalidItemBarcodeVendingMachineException();
+                throw new InvalidBarcodeException(barcode);
             }
         }
 
@@ -66,7 +66,7 @@ namespace VendingMachine.Products
             }
             catch (KeyNotFoundException)
             {
-                throw new InvalidItemBarcodeVendingMachineException();
+                throw new InvalidBarcodeException(barcode);
             }
         }
     }

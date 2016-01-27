@@ -73,7 +73,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoItemsLeftVendingMachineException))]
+        [ExpectedException(typeof(OutOfStockException))]
         public void TakeOne_NotAvaliable_ExceptionThrown()
         {
             var info = new Product(Guid.NewGuid(), "Cookie", 10);

@@ -21,7 +21,7 @@ namespace VendingMachine.Finance
             set
             {
                 if (value < 0)
-                    throw new NotEnoughMoneyBalanceException();
+                    throw new InsufficientFundsException();
 
                 _customerDeposit = value;
             }
@@ -67,7 +67,7 @@ namespace VendingMachine.Finance
         public Coin TakeCoin(Coin coin)
         {
             if (CustomerDeposit < (int)coin)
-                throw new NotEnoughMoneyBalanceException();
+                throw new InsufficientFundsException();
 
             var taken = _balance.TakeCoin(coin);
             CustomerDeposit -= (int)coin;
@@ -79,7 +79,7 @@ namespace VendingMachine.Finance
         {
             if (CustomerDeposit < amount)
             {
-                throw new NotEnoughMoneyBalanceException();
+                throw new InsufficientFundsException();
             }
 
             try
@@ -89,9 +89,9 @@ namespace VendingMachine.Finance
 
                 return balance;
             }
-            catch(NoCoinBalanceException)
+            catch(NoSuchCoinException)
             {
-                throw new NoChangeVendingMachineException();
+                throw new ChangeCannotBeReturnedException();
             }
         }
     }

@@ -11,7 +11,7 @@ namespace VendingMachine.Tests
     public class MenuTests
     {
         [TestMethod]
-        [ExpectedException(typeof(InvalidItemBarcodeVendingMachineException))]
+        [ExpectedException(typeof(InvalidBarcodeException))]
         public void TakeOne_NonExistingBarcode_ExceptionThrown()
         {
             IEnumerable<ProductCollection> draft = new List<ProductCollection>
@@ -27,7 +27,7 @@ namespace VendingMachine.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoItemsLeftVendingMachineException))]
+        [ExpectedException(typeof(OutOfStockException))]
         public void TakeOne_NoItemsLeft_ExceptionThrown()
         {
             Guid waffleGuid = Guid.NewGuid();

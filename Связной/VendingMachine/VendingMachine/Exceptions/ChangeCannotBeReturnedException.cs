@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Exceptions
 {
-    class CustomerException : Exception
+    public class ChangeCannotBeReturnedException : Exception
     {
-        public CustomerException(string message) : base(message) { }
+        public ChangeCannotBeReturnedException() : base("Change can't be returned") { }
     }
 }

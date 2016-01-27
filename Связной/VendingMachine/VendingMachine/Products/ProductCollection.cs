@@ -8,15 +8,19 @@ namespace VendingMachine.Products
         public Product ProductInfo { get; }
         public int Amount { get; private set; }
 
-        public Boolean IsAvaliable => (Amount != 0);
+        public Boolean IsAvaliable => (Amount > 0);
 
         public ProductCollection(Product info, int amount)
         {
             if (info == null)
-                throw new ArgumentNullException("Product description is null.");
+            {
+                throw new ArgumentNullException(nameof(info));
+            }
 
             if (amount < 0)
-                throw new ArgumentException("Product amount is less than zero.");
+            {
+                throw new ArgumentException(nameof(amount));
+            }
 
             ProductInfo = info;
             Amount = amount;
@@ -28,7 +32,9 @@ namespace VendingMachine.Products
         public Product TakeOne()
         {
             if (IsAvaliable == false)
-                throw new NoItemsLeftVendingMachineException();
+            {
+                throw new OutOfStockException(ProductInfo.Name);
+            }
 
             Amount--;
             return ProductInfo.Clone();

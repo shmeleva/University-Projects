@@ -47,7 +47,7 @@ namespace VendingMachine.Finance
         public void PutCoins(Coin coin, int numberOfCoins)
         {
             if (numberOfCoins < 0)
-                throw new ArgumentException("The number of coins is less than zero.");
+                throw new ArgumentException(nameof(numberOfCoins));
 
             if (_stacksOfCoins.ContainsKey(coin) == false)
                 _stacksOfCoins.Add(coin, 0);
@@ -64,7 +64,7 @@ namespace VendingMachine.Finance
         public Coin TakeCoin(Coin coin)
         {
             if (_stacksOfCoins.ContainsKey(coin) == false || _stacksOfCoins[coin] == 0)
-                throw new NoCoinBalanceException();
+                throw new NoSuchCoinException();
 
             _stacksOfCoins[coin]--;
 
@@ -113,7 +113,7 @@ namespace VendingMachine.Finance
 
             if (amount > 0)
             {
-                throw new NoCoinBalanceException();
+                throw new NoSuchCoinException();
             }
 
             return change;

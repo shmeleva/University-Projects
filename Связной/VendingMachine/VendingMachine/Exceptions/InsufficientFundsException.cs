@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Exceptions
 {
-    class OutOfMoneyCustomerException : CustomerException
+    public class InsufficientFundsException : Exception
     {
-        public OutOfMoneyCustomerException() : base("Кончились деньги.") { }
+        public InsufficientFundsException() : base("Insufficient funds to complete transaction") { }
     }
 }

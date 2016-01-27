@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VendingMachine.Exceptions
 {
-    class NotEnoughMoneyBalanceException : BalanceException
+    public class OutOfStockException : Exception
     {
-        public NotEnoughMoneyBalanceException() : base("Недостаточно средств.") { }
+        public OutOfStockException(string name) : base($"{name} is out of stock") { }
     }
 }
