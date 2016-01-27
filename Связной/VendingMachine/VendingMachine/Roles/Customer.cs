@@ -26,6 +26,8 @@ namespace VendingMachine.Roles
         public IDictionary<Coin, int> Wallet =>
             _customerBalance.StacksOfCoins;
 
+        public int WalletBalance => _customerBalance.Overall;
+
         public Customer(IBalance customerBalance)
         {
             if (customerBalance == null)

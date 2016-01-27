@@ -16,7 +16,7 @@ namespace VendingMachine
                 ProjectDefaults.VendingMachineBalance);
 
             var app = new ConsoleApplication(customer, machine);
-            app.Run();
+            app.Main.Execute();
         }
     }
 }

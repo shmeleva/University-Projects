@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\ChooseProductTradeAction.cs" />
+    <Compile Include="Actions\ITradeAction.cs" />
+    <Compile Include="Actions\MajorTradeAction.cs" />
+    <Compile Include="Actions\PayTradeAction.cs" />
+    <Compile Include="Actions\RequestChangeTradeAction.cs" />
+    <Compile Include="Actions\TradeAction.cs" />
     <Compile Include="ConsoleApplication.cs" />
     <Compile Include="Exceptions\BalanceException.cs" />
     <Compile Include="Exceptions\CustomerException.cs" />
@@ -72,6 +78,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

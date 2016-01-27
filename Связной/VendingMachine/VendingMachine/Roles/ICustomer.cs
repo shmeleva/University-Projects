@@ -12,6 +12,7 @@ namespace VendingMachine.Roles
     {
         IEnumerable<Product> BoughtProducts { get; }
         IDictionary<Coin, int> Wallet { get; }
+        int WalletBalance { get; }
 
         void BuyFrom(ISeller seller);
         void Pay(Coin coin);
