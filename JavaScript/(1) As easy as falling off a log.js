@@ -22,27 +22,27 @@ var indent = function(number) {
 }
 
 function Name(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+	this.firstName = firstName;
+	this.lastName = lastName;
 };
 
 function Address(postalCode, country, city, street, building) {
-    this.postalCode = postalCode;
-    this.country = country;
-    this.city = city;
-    this.street = street;	
+	this.postalCode = postalCode;
+	this.country = country;
+	this.city = city;
+	this.street = street;	
 	this.building = building;
 };
 
 function Contacts(address, phoneNumber) {
-    this.address = address;
-    this.phoneNumber = phoneNumber;
+	this.address = address;
+	this.phoneNumber = phoneNumber;
 };
 
 function Person(name, age, contacts, titles) {
-    this.name = name;
-    this.age = age;
-    this.contacts = contacts;
+	this.name = name;
+	this.age = age;
+	this.contacts = contacts;
 	this.titles = titles;
 		
 	this.log = function() {
