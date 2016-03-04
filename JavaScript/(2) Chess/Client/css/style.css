@@ -1,0 +1,82 @@
+#chessboard
+{
+	width: 512px;
+	height: 512pxpx;
+	float: left;
+}
+
+.droppable-square
+{
+	width: 64px;
+	height: 64px;
+	float: left;
+	font-size: 8px;
+	position: relative;
+}
+
+.droppable-square.white-square
+{
+	background-color: Ivory;
+	color: MediumAquaMarine;
+}
+
+.droppable-square.black-square
+{
+	background-color: MediumAquaMarine;
+	color: Ivory;
+}
+
+.droppable-square.white-square.drop-enabled-hover
+{
+	background-color: rgb(250, 245, 245);
+}
+
+.droppable-square.black-square.drop-enabled-hover
+{
+	background-color: rgb(117, 189, 165);
+}
+
+.draggable-piece
+{
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	float: left;
+	color: Teal;
+	font-size: 48px;
+	text-align: center;
+	cursor: default;
+	z-index: 3;
+
+	-webkit-touch-callout: none; /* Safari */
+	-webkit-user-select: none;   /* Chrome, Safari, Opera */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE, Edge */
+}
+
+.draggable-piece.drag-enabled
+{
+	cursor: pointer;
+}
+
+.draggable-piece.drag-enabled.grabbed
+{
+	cursor: move;
+}
+
+.coordinate
+{
+	width: 64px;
+	height: 64px;
+	font-size: 12px;
+	cursor: default;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+
+	-webkit-touch-callout: none; /* Safari */
+	-webkit-user-select: none;   /* Chrome, Safari, Opera */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE, Edge */
+}
