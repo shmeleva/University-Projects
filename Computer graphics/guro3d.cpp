@@ -80,6 +80,25 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
+#define RUSSIAN_KEY_OFFSET 1104
+
+#define MOVE_LEFT_ITEM 8192
+#define MOVE_RIGHT_ITEM 8193
+#define MOVE_UP_ITEM 8194
+#define MOVE_DOWN_ITEM 8195
+
+#define ROTATE_X_ITEM 8196
+#define ROTATE_Y_ITEM 8197
+
+#define REFLECT_XY_ITEM 8198
+#define REFLECT_X_ITEM 8199
+#define REFLECT_Y_ITEM 8200
+
+#define RESIZE_UP_ITEM 8201
+#define RESIZE_DOWN_ITEM 8202
+
+#define RESET_ITEM 8203
+
 // Buffer variables:
 BITMAPINFO bmi;
 DWORD* pixels = nullptr;
@@ -462,7 +481,7 @@ void FillClientRectangle(DWORD* pixels, int x1, int y1, int x2, int y2, COLORREF
 		dy = clientRectangle.bottom - min(y1, y2);
 	}
 	//
-	color = GetRValue(color) << 16 | (WORD)GetGValue(color) << 8 | GetBValue(color);
+	color = RGB(255, 255, 255);
 	DWORD * line = new DWORD[dx];
 	//
 	for (i = 0; i < dx; i++)
@@ -616,8 +635,35 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	HWND hWnd;
 	hInst = hInstance; // Store instance handle in our global variable
 
+	HMENU hMenu = CreateMenu();
+	
+	HMENU hSubMenu = CreatePopupMenu();
+	AppendMenu(hSubMenu, MF_STRING, ROTATE_X_ITEM, L"Rotate X (X)");
+	AppendMenu(hSubMenu, MF_STRING, ROTATE_Y_ITEM, L"Rotate Y (Y)");
+	AppendMenu(hMenu, MF_STRING | MF_POPUP, (UINT)hSubMenu, L"Rotate");
+	
+	hSubMenu = CreatePopupMenu();
+	AppendMenu(hSubMenu, MF_STRING, MOVE_LEFT_ITEM, L"Move Left (Left Arrow)");
+	AppendMenu(hSubMenu, MF_STRING, MOVE_RIGHT_ITEM, L"Move Right (Right Arrow)");
+	AppendMenu(hSubMenu, MF_STRING, MOVE_UP_ITEM, L"Move Up (Up Arrow)");
+	AppendMenu(hSubMenu, MF_STRING, MOVE_DOWN_ITEM, L"Move Down (Down Arrow)");
+	AppendMenu(hMenu, MF_STRING | MF_POPUP, (UINT)hSubMenu, L"Move");
+	
+	hSubMenu = CreatePopupMenu();
+	AppendMenu(hSubMenu, MF_STRING, REFLECT_X_ITEM, L"Reflect X (X)");
+	AppendMenu(hSubMenu, MF_STRING, REFLECT_Y_ITEM, L"Reflect Y (Y)");
+	AppendMenu(hSubMenu, MF_STRING, REFLECT_XY_ITEM, L"Reflect l = XY (L)");
+	AppendMenu(hMenu, MF_STRING | MF_POPUP, (UINT)hSubMenu, L"Reflect");
+
+	hSubMenu = CreatePopupMenu();
+	AppendMenu(hSubMenu, MF_STRING, RESIZE_UP_ITEM, L"Increase Size (+)");
+	AppendMenu(hSubMenu, MF_STRING, RESIZE_DOWN_ITEM, L"Decrease Size (-)");
+	AppendMenu(hMenu, MF_STRING | MF_POPUP, (UINT)hSubMenu, L"Resize");
+
+	AppendMenu(hMenu, MF_STRING, RESET_ITEM, L"Reset");
+
 	// Main window.
-	hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, 380 * 2, 380 * 2, nullptr, nullptr, hInstance, nullptr);
+	hWnd = CreateWindow(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, 0, 380 * 2, 380 * 2, nullptr, hMenu, hInstance, nullptr);
 	if (hWnd == nullptr)
 	{
 		return false;
@@ -702,6 +748,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
 			break;
+		case ROTATE_X_ITEM:
+			RotateX(alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
+			break;
+		case ROTATE_Y_ITEM:
+			RotateY(alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
+			break;
+		case MOVE_LEFT_ITEM:
+			MoveX(-value);
+			break;
+		case MOVE_RIGHT_ITEM:
+			MoveX(value);
+			break;
+		case MOVE_UP_ITEM:
+			MoveY(value);
+			break;
+		case MOVE_DOWN_ITEM:
+			MoveY(-value);
+			break;
+		case REFLECT_X_ITEM:
+			ReflectX();
+			break;
+		case REFLECT_Y_ITEM:
+			ReflectY();
+			break;
+		case REFLECT_XY_ITEM:
+			ReflectXY();
+			break;
+		case RESIZE_UP_ITEM:
+			Resize(1.2);
+			break;
+		case RESIZE_DOWN_ITEM:
+			Resize(0.8);
+			break;
+		case RESET_ITEM:
+			Reset();
+			break;
 		default:
 			return DefWindowProc(hWnd, message, wParam, lParam);
 		}
@@ -750,11 +832,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 		//
 	case WM_LBUTTONDOWN:
-		KillTimer(hWnd, NULL);
+		//KillTimer(hWnd, NULL);
+		rotationPoint.x = LOWORD(lParam);
+		rotationPoint.y = HIWORD(lParam);
 		break;
 		//
 	case WM_LBUTTONUP:
-		SetTimer(hWnd, NULL, 10, NULL);
+		//SetTimer(hWnd, NULL, 10, NULL);
 		break;
 		//
 	case WM_KEYDOWN:
@@ -783,33 +867,48 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 		case 'W':
 		case 'w':
-			RotateX(alpha, screenCentre);
+		case 'Ц' + RUSSIAN_KEY_OFFSET:
+		case 'ц' + RUSSIAN_KEY_OFFSET:
+			RotateX(alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
 			break;
 		case 'A':
 		case 'a':
-			RotateY(-alpha, screenCentre);
+		case 'Ф' + RUSSIAN_KEY_OFFSET:
+		case 'ф' + RUSSIAN_KEY_OFFSET:
+			RotateY(-alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
 			break;
 		case 'S':
 		case 's':
-			RotateX(-alpha, screenCentre);
+		case 'Ы' + RUSSIAN_KEY_OFFSET:
+		case 'ы' + RUSSIAN_KEY_OFFSET:
+			RotateX(-alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
 			break;
 		case 'D':
 		case 'd':
-			RotateY(alpha, screenCentre);
+		case 'В' + RUSSIAN_KEY_OFFSET:
+		case 'в' + RUSSIAN_KEY_OFFSET:
+			RotateY(alpha, (rotationPoint.x && rotationPoint.y) ? rotationPoint : screenCentre);
 			break;
 		case 'X':
 		case 'x':
+		case 'Ч' + RUSSIAN_KEY_OFFSET:
+		case 'ч' + RUSSIAN_KEY_OFFSET:
 			ReflectX();
 			break;
 		case 'Y':
 		case 'y':
+		case 'Н' + RUSSIAN_KEY_OFFSET:
+		case 'н' + RUSSIAN_KEY_OFFSET:
 			ReflectY();
 			break;
 		case 'L':
 		case 'l':
+		case 'Д' + RUSSIAN_KEY_OFFSET:
+		case 'д' + RUSSIAN_KEY_OFFSET:
 			ReflectXY();
 			break;
 		case '+':
+		case '=':
 			Resize(1.2);
 			break;
 		case '-':
@@ -817,6 +916,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 		case 'R':
 		case 'r':
+		case 'К' + RUSSIAN_KEY_OFFSET:
+		case 'к' + RUSSIAN_KEY_OFFSET:
 			Reset();
 			break;
 		default:
